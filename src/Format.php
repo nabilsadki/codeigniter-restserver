@@ -1,6 +1,6 @@
 <?php
 
-namespace chriskacerguis\RestServer;
+namespace nabilsadki\RestServer;
 
 use Exception;
 
@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * Format class
  * Help convert between various formats such as XML, JSON, CSV, etc.
  *
- * @author    Phil Sturgeon, Chris Kacerguis, @softwarespot
+ * @author    Phil Sturgeon, Chris Kacerguis, @softwarespot, Nabil Sadki
  * @license   http://www.dbad-license.org/
  */
 class Format

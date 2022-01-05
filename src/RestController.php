@@ -1,6 +1,6 @@
 <?php
 
-namespace chriskacerguis\RestServer;
+namespace nabilsadki\RestServer;
 
 use Exception;
 use stdClass;
@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * CodeIgniter Rest Controller
  * A fully RESTful server implementation for CodeIgniter using one library, one config file and one controller.
  *
- * @link            https://github.com/chriskacerguis/codeigniter-restserver
+ * @link            https://github.com/nabilsadki/codeigniter-restserver
  *
  * @version         4.0.0
  */

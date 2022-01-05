@@ -12,21 +12,21 @@ A fully RESTful server implementation for CodeIgniter using one library, one con
 ## Installation
 
 ```sh
-composer require chriskacerguis/codeigniter-restserver
+composer require nabilsadki/codeigniter-restserver
 ```
 
 ## Usage
 
-CodeIgniter Rest Server is available on [Packagist](https://packagist.org/packages/chriskacerguis/codeigniter-restserver) (using semantic versioning), and installation via composer is the recommended way to install Codeigniter Rest Server. Just add this line to your `composer.json` file:
+CodeIgniter Rest Server is available on [Packagist](https://packagist.org/packages/nabilsadki/codeigniter-restserver) (using semantic versioning), and installation via composer is the recommended way to install Codeigniter Rest Server. Just add this line to your `composer.json` file:
 
 ```json
-"chriskacerguis/codeigniter-restserver": "^3.1"
+"nabilsadki/codeigniter-restserver": "^3.1"
 ```
 
 or run
 
 ```sh
-composer require chriskacerguis/codeigniter-restserver
+composer require nabilsadki/codeigniter-restserver
 ```
 
 Note that you will need to copy `rest.php` to your `config` directory (e.g. `application/config`)
@@ -34,7 +34,7 @@ Note that you will need to copy `rest.php` to your `config` directory (e.g. `app
 Step 1: Add this to your controller (should be before any of your code)
 
 ```php
-use chriskacerguis\RestServer\RestController;
+use nabilsadki\RestServer\RestController;
 ```
 
 Step 2: Extend your controller
@@ -54,7 +54,7 @@ Here is a basic example. This controller, which should be saved as `Api.php`, ca
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use chriskacerguis\RestServer\RestController;
+use nabilsadki\RestServer\RestController;
 
 class Api extends RestController {
 

@@ -1,17 +1,17 @@
 {
-    "name": "chriskacerguis/codeigniter-restserver",
-    "description": "CI Rest Server",
+    "name": "nabilsadki/codeigniter-restserver",
+    "description": "CI Rest Server (Forked from chriskacerguis/codeigniter-restserver)",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Chris Kacerguis",
-            "email": "chriskacerguis@gmail.com"
+            "name": "Nabil Sadki",
+            "email": "nabil.sadki@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "autoload": {
-        "psr-4": {"chriskacerguis\\RestServer\\": "src/"}
+        "psr-4": {"nabilsadki\\RestServer\\": "src/"}
     },
     "require": {}
 }
