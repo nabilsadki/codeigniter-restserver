@@ -567,7 +567,7 @@ class RestController extends \CI_Controller
         $controller_method = $object_called.'_'.$this->request->method;
         // Does this method exist? If not, try executing an index method
         if (!method_exists($this, $controller_method)) {
-            $controller_method = 'index_'.$this->request->method;
+            $controller_method = 'index' . ucfirst($this->request->method);
             array_unshift($arguments, $object_called);
         }
 
@@ -1973,7 +1973,7 @@ class RestController extends \CI_Controller
             return false;
         }
 
-        $payload['rtime'] = $this->_end_rtime - $this->_start_rtime;
+        $payload['rtime'] = str_replace(',', '.', $this->_end_rtime - $this->_start_rtime);
 
         return $this->rest->db->update(
             $this->config->item('rest_logs_table'),
@@ -2033,16 +2033,28 @@ class RestController extends \CI_Controller
 
         // Remove any double slashes for safety
         $controller = str_replace('//', '/', $controller);
+        $controller = str_replace('_', '-', $controller);
 
         //check if the key has all_access
-        $accessRow = $this->rest->db
-            ->where('key', $this->rest->key)
+        $accessRows = $this->rest->db
+            ->where_in('role', [$this->_apiuser->profil, ''])
             ->where('controller', $controller)
-            ->get($this->config->item('rest_access_table'))->row_array();
+            ->get($this->config->item('rest_access_table'))->result_array();
 
-        if (!empty($accessRow) && !empty($accessRow['all_access'])) {
-            return true;
+        foreach ($accessRows as $accessRow) {
+            // Check if all access granted
+            if (!empty($accessRow['all_access'])) {
+                return true;
+            }
+
+            // Check if method is granted
+            $method = $this->input->method();
+            $allowed_methods = explode(',', $accessRow['methods']);
+            if (in_array($method, $allowed_methods)) {
+                return true;
+            }
         }
+
 
         return false;
     }
